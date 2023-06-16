@@ -26,19 +26,6 @@ param(
     [string]
     $resourceGroupNameRegion,
 
-    [Parameter(Mandatory = $True)]  
-    [string]
-    $serverName,
-
-    [Parameter(Mandatory = $True)]  
-    [string]
-    $adminLogin,
-
-    [Parameter(Mandatory = $True)]  
-    [String]
-    $adminPassword
-)
-
 
 #region Login
 # This logs into Azure with a Service Principal Account
