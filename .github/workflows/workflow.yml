@@ -1,4 +1,4 @@
-name: GitHub for IT Pro CI/CD Pipeline
+name: vmToAzure
 
 env:
   OUTPUT_PATH: ${{ github.workspace }}
@@ -9,7 +9,7 @@ jobs:
       
   # Deploy VM in Azure
   DeployVM:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
 
     steps:
     # checkout code from repo
@@ -22,10 +22,8 @@ jobs:
 
     - name: provision virtual machine in azure
       env:
-        RESOURCE_GROUP: rg-githubdeploy
-        RESOURCE_GROUP_REGION: ukwest
-        SERVER_NAME: githubactions
-        ADMIN_LOGIN: sarah
+        RESOURCE_GROUP: agarrido
+        RESOURCE_GROUP_REGION: westeurope
       run: >
         powershell -command "& '${{ env.OUTPUT_PATH }}\IaC\AzCLI\vmcreation.ps1'" 
         -servicePrincipal ${{ secrets.SERVICE_PRINCIPAL_APPID }}
@@ -34,7 +32,5 @@ jobs:
         -azureSubscriptionName ${{ secrets.AZURE_SUBSCRIPTION_ID }}
         -resourceGroupName %RESOURCE_GROUP% 
         -resourceGroupNameRegion %RESOURCE_GROUP_REGION% 
-        -serverName %SERVER_NAME% 
-        -adminLogin %ADMIN_LOGIN% 
-        -adminPassword ${{ secrets.ADMIN_PASSWORD }} 
+
 
