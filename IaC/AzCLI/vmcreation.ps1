@@ -1,30 +1,30 @@
 ﻿# This IaC script provisions a VM within Azure
 #
-[CmdletBinding()]
-param(
-    [Parameter(Mandatory = $True)]
-    [string]
-    $servicePrincipal,
+#[CmdletBinding()]
+#param(
+#    [Parameter(Mandatory = $True)]
+#    [string]
+#    $servicePrincipal,
 
-    [Parameter(Mandatory = $True)]
-    [string]
-    $servicePrincipalSecret,
+#    [Parameter(Mandatory = $True)]
+#    [string]
+#    $servicePrincipalSecret,
 
-    [Parameter(Mandatory = $True)]
-    [string]
-    $servicePrincipalTenantId,
+#    [Parameter(Mandatory = $True)]
+#    [string]
+#    $servicePrincipalTenantId,
 
-    [Parameter(Mandatory = $True)]
-    [string]
-    $azureSubscriptionName,
+#    [Parameter(Mandatory = $True)]
+#    [string]
+#    $azureSubscriptionName,
 
-    [Parameter(Mandatory = $True)]
-    [string]
-    $resourceGroupName,
+#    [Parameter(Mandatory = $True)]
+#    [string]
+#    $resourceGroupName,
 
-    [Parameter(Mandatory = $True)]
-    [string]
-    $resourceGroupNameRegion,
+#    [Parameter(Mandatory = $True)]
+#    [string]
+#    $resourceGroupNameRegion,
 
 
 #region Login
