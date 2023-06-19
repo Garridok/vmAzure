@@ -22,7 +22,7 @@ jobs:
         with:
           tokenPrefix: '__'
           tokenSuffix: '__'
-          files: '["$GITHUB_WORKSPACE/IaC/AzCLI/redvirtual.sh"]'
+          files: '["**/*.sh"]'
         env:
           grupo: garridoGithubAction
           loca: westeurope
