@@ -22,7 +22,8 @@ jobs:
         with:
           azcliversion: latest
           inlineScript: |
-            chmod +x IaC\AzCLI/redvirtual.sh
+            chmod +x $GITHUB_WORKSPACE/redvirtual.sh
+            $GITHUB_WORKSPACE/redvirtual.sh
 
                 
 
