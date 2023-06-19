@@ -4,7 +4,7 @@ LOCATION=__loca__
 VM_NAME=__vmname__
 VM_IMAGE=__image__
 ADMIN_USERNAME=antonio
-nicName=__nicname__
+nicname=__nicname__
 subname=__subnetname__
 vnetname=__vnetname__
 #snap o disco de sistema
@@ -15,15 +15,15 @@ MyOsDisk=garrido2disk2snap
 
 
 az vm create \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --resource-group $GRUPO \
   --name $VM_NAME \
-  --location $LOCATION \
+  --location $loca \
   --image $VM_IMAGE \
   --admin-username $ADMIN_USERNAME \
   --generate-ssh-keys \
   --public-ip-sku Standard \
   --size Standard_B1s \
-  --nics $nicName \
+  --nics $nicname \
 
 
 ##Crear VM desde un disco creado de un Snap OS de otra maquina
