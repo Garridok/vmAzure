@@ -1,6 +1,6 @@
 #VM en cli
-RESOURCE_GROUP_NAME=__grupo__
-LOCATION=__loca__
+GRUPO=__grupo__
+loca=__loca__
 VM_NAME=__vmname__
 VM_IMAGE=__image__
 ADMIN_USERNAME=antonio
