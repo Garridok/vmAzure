@@ -1,36 +1,28 @@
-name: vmToAzure
-
-env:
-  OUTPUT_PATH: ${{ github.workspace }}
-
+# File: .github/workflows/OIDC_workflow.ym
+name: Run Azure Login
 on: [push]
 
-jobs:
-      
-  # Deploy VM in Azure
-  DeployVM:
+permissions:
+      id-token: write
+      contents: read
+jobs: 
+  build-and-deploy:
     runs-on: ubuntu-latest
-
     steps:
-    # checkout code from repo
-    - name: checkout repo
-      uses: actions/checkout@v1
+      - name: Az CLI login
+        uses: azure/login@v1
+        with:
+          creds: '{"clientId":"${{ secrets.CLIENT_ID }}","clientSecret":"${{ secrets.CLIENT_SECRET }}","subscriptionId":"${{ secrets.SUSCRIPTION_ID }}","tenantId":"${{ secrets.TENANT_ID }}"}'
+      
+      - name: Checkout
+        uses: actions/checkout@v1
 
-    - name: look for ps1 file
-      run: |
-        ls '${{ env.OUTPUT_PATH }}\IaC\AzCLI'
+      - name: Azure CLI script
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            chmod +x IaC\AzCLI/redvirtual.sh
 
-    - name: provision virtual machine in azure
-      env:
-        RESOURCE_GROUP: agarrido
-        RESOURCE_GROUP_REGION: westeurope
-      run: >
-        powershell -command "& '${{ env.OUTPUT_PATH }}\IaC\AzCLI\vmcreation.ps1'" 
-        -servicePrincipal ${{ secrets.SERVICE_PRINCIPAL_APPID }}
-        -servicePrincipalSecret ${{ secrets.SERVICE_PRINCIPAL_SECRET }} 
-        -servicePrincipalTenantId ${{ secrets.SERVICE_PRINCIPAL_TENANTID }} 
-        -azureSubscriptionName ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        -resourceGroupName %RESOURCE_GROUP% 
-        -resourceGroupNameRegion %RESOURCE_GROUP_REGION% 
-
+                
 
