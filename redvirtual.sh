@@ -5,6 +5,7 @@ loca=__loca__
 vnetname=__vnetname__
 nicname=__nicname__
 nsgname=__nsgname__
+subnetname=__subnetname__
 # Set variables
 rule_name="nicprueba"
 priority_number=100
@@ -45,7 +46,7 @@ az network nic create \
     --resource-group $GRUPO \
     --location $loca \
     --vnet-name $vnetname \
-    --subnet "Subnetbash2" \
+    --subnet $subnetname \
     --network-security-group $nsgname 
 
 

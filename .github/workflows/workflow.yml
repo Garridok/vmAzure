@@ -29,6 +29,10 @@ jobs:
           vnetname: vnetgarrido
           nicname: nicgarrido
           nsgname: nsgarrido
+          subnetname: subnetgarrido
+          vmname: garrido
+          image: UbuntuLTS
+          
 
       - name: Azure CLI script
         uses: azure/CLI@v1

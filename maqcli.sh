@@ -1,12 +1,12 @@
 #VM en cli
-RESOURCE_GROUP_NAME=garrido2bash
-LOCATION=westeurope
-VM_NAME=VMGarrido
-VM_IMAGE=Ubuntu2204
+RESOURCE_GROUP_NAME=__grupo__
+LOCATION=__loca__
+VM_NAME=__vmname__
+VM_IMAGE=__image__
 ADMIN_USERNAME=antonio
-nicName=nicgarridoweu
-subname="Subnetbash2"
-vnetname=Vnetbash1
+nicName=__nicname__
+subname=__subnetname__
+vnetname=__vnetname__
 #snap o disco de sistema
 MyOsDisk=garrido2disk2snap
 
