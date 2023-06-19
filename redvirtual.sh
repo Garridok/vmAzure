@@ -27,6 +27,14 @@ az network vnet create -g $GRUPO -n $vnetname --address-prefix 10.0.0.0/16 --sub
 #Public IP
 az network public-ip create -g $GRUPO -n "pubip"
 
+az network nic create \
+    --name $nicname \
+    --resource-group $GRUPO \
+    --location $loca \
+    --vnet-name $vnetname \
+    --subnet $subnetname \
+    --network-security-group $nsgname 
+    
 #NSG create
 az network nsg create -g $GRUPO -n $nsgname
 
@@ -41,13 +49,7 @@ az network nsg rule create \
     --access "Allow"
 
 #NIC create
-az network nic create \
-    --name $nicname \
-    --resource-group $GRUPO \
-    --location $loca \
-    --vnet-name $vnetname \
-    --subnet $subnetname \
-    --network-security-group $nsgname 
+
 
 
 #ssh cambiar ubicacion del archivo
