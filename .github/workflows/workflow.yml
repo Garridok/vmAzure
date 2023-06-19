@@ -17,6 +17,19 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v1
 
+      - name: Replace Tokens
+        uses: cschleiden/replace-tokens@v1
+        with:
+          tokenPrefix: '__'
+          tokenSuffix: '__'
+          files: '["$GITHUB_WORKSPACE/IaC/AzCLI/redvirtual.sh"]'
+        env:
+          grupo: garridoGithubAction
+          loca: westeurope
+          vnetname: vnetgarrido
+          nicname: nicgarrido
+          nsgname: nsgarrido
+
       - name: Azure CLI script
         uses: azure/CLI@v1
         with:

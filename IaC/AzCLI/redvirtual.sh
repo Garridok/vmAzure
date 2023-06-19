@@ -1,10 +1,10 @@
 #funciona
 #Variables
-GRUPO=garrido2bash
-loca=westeurope
-vnetname=Vnetbash1
-nicname=nicgarridoweu
-nsgname=nsggarrido
+GRUPO=__grupo__
+loca=__loca__
+vnetname=__vnetname__
+nicname=__nicname__
+nsgname=__nsgname__
 # Set variables
 rule_name="nicprueba"
 priority_number=100
