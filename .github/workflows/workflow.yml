@@ -34,13 +34,28 @@ jobs:
           image: UbuntuLTS
           
 
-      - name: Azure CLI script
+      - name: Azure CLI red virtual
         uses: azure/CLI@v1
         with:
           azcliversion: latest
           inlineScript: |
-            chmod +x $GITHUB_WORKSPACE/*.sh
+            chmod +x $GITHUB_WORKSPACE/redvirtual.sh
             $GITHUB_WORKSPACE/redvirtual.sh
+
+      - name: Azure CLI NIC
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            chmod +x $GITHUB_WORKSPACE/nic.sh
+            $GITHUB_WORKSPACE/nic.sh
+
+      - name: Azure CLI VM
+        uses: azure/CLI@v1
+        with:
+          azcliversion: latest
+          inlineScript: |
+            chmod +x $GITHUB_WORKSPACE/maqcli.sh
             $GITHUB_WORKSPACE/maqcli.sh
 
                 
