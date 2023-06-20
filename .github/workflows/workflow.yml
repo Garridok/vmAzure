@@ -22,7 +22,7 @@ jobs:
         with:
           tokenPrefix: '__'
           tokenSuffix: '__'
-          files: '["**/*.sh"]'
+          files: '["**/maqcli.sh, redvirtual.sh, nic.sh"]'
         env:
           grupo: garridoGithubAction
           loca: westeurope
